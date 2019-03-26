@@ -4,6 +4,13 @@ Python code to manage files over FTP socket using ```ftplib ```. This code is us
 Note: This is tested for Python 2.7. Have yet to test it on Python 3.x.
 Before you can manage file, you need to specify the FTP IP address and login credentials.
 
+## Changelog
+```v0.1```
+- Base project
+```v0.1.1```
+- Added PWD
+- Making it usable for Python 3.x. As Python 2.7 will be deprecated on 2020.
+
 ## Features (shown on the interface)
 ##### ```LIST```
 This will list all the files on the FTP server.
