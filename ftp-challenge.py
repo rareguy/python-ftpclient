@@ -24,67 +24,70 @@ def placeFiles(ftp, path):
             print("Change directory:", "..")
             ftp.cwd("..")
 
-x = raw_input('IP: ')
-y = raw_input('Username: ')
-z = raw_input('Password: ')
+x = input('IP: ')
+y = input('Username: ')
+z = input('Password: ')
 
 f = FTP(x)
-print "Welcome:", f.getwelcome()
+print("Welcome:"), f.getwelcome()
 
 f.login(y, z)
-print "Current working directory:", f.pwd()
+print ("Current working directory: " + f.pwd())
 
 while True:
-    command = raw_input('>> ')
+    command = input('>> ')
     if command == "LIST":
         a = f.nlst()
-        print 'List of directory: '
+        print('List of directory: ')
         for i in a:
-            print i
+            print(i)
     elif command == "DOWNLOAD":
-        b = raw_input('Enter file name: ')
+        b = input('Enter file name: ')
         fd = open(b, 'wb')
         f.retrbinary('RETR ' + b, fd.write)
-        print "Download success."
+        print ("Download success.")
         fd.close()
     elif command == "UPLOAD":
-        c = raw_input('Enter file name: ')
+        c = input('Enter file name: ')
         fd = open(c, 'rb')
         f.storbinary('STOR ' + c, fd)
-        print "Upload success."
+        print ("Upload success.")
         fd.close()
     elif command == "CREATEDIR":
-        d = raw_input('Enter directory name: ')
+        d = input('Enter directory name: ')
         f.mkd(d)
-        print "Create directory success."
+        print ("Create directory success.")
     elif command == "RENAME":
-        e = raw_input('Select file to rename: ')
-        g = raw_input('Rename to: ')
+        e = input('Select file to rename: ')
+        g = input('Rename to: ')
         f.rename(e, g)
-        print "Rename success."
+        print ("Rename success.")
     elif command == "CHANGEDIR":
-        h = raw_input('Select directory: ')
+        h = input('Select directory: ')
         f.cwd(h)
-        print "Current working directory:", f.pwd()
+        print ("Current working directory:", f.pwd())
     elif command == "DELETE":
-        k = raw_input('Select file to delete: ')
+        k = input('Select file to delete: ')
         f.rmd(k)
-        print "Delete success."
+        print ("Delete success.")
     elif command == "UPTRACT":
-        j = raw_input('Select file to upload & extract: ')
+        j = input('Select file to upload & extract: ')
         zip_ref = zipfile.ZipFile(j, 'r')
         os.mkdir(j[:-4])
         try:
             zip_ref.extractall(j[:-4])
         except:
-            print "Extract failed."
+            print ("Extract failed.")
         else:
-            print "Extract success."
+            print ("Extract success.")
         try:
             placeFiles(f, j[:-4])
         except:
-            print "Upload failed."
+            print ("Upload failed.")
         else:
-            print "Upload success."
+            print ("Upload success.")
+    elif command == "PWD":
+        print ("Current working directory:", f.pwd())
+        
 
 f.quit()
