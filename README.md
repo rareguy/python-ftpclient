@@ -13,6 +13,8 @@ Before you can manage file, you need to specify the FTP IP address and login cre
 - Making it usable for Python 3.x. As Python 2.7 will be deprecated on 2020.
 
 ## Features (shown on the interface)
+### ```v0.1```
+
 ##### ```LIST```
 This will list all the files on the FTP server.
 ```sh
@@ -69,6 +71,14 @@ This will upload a ```.zip``` file but instead of being a ```.zip``` file on the
 Select file to upload & extract: test.zip
 Extract success.
 Upload success.
+```
+
+### ```v0.1.1```
+##### ```PWD```
+This will show where your current working directory.
+```sh
+>> PWD
+Current working directory: /rareguy
 ```
 
 Download Python:
