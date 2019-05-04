@@ -12,6 +12,12 @@ Before you can manage file, you need to specify the FTP IP address and login cre
 - Added PWD
 - Making it usable for Python 3.x. As Python 2.7 will be deprecated on 2020.
 
+```v0.1.2```
+- Added cancellation for each function
+- LIST now use MLSD instead of NLST
+- Added HELP menu to see function listing
+- Note: There will be several garbage files for sandboxing!
+
 ## Features (shown on the interface)
 ### ```v0.1```
 
@@ -27,7 +33,7 @@ This will download a file from the FTP server to the client.
 ```sh
 >> DOWNLOAD
 Enter file name: abc.txt
-Download success.
+Download abc.txt success.
 ...
 ```
 
@@ -36,7 +42,7 @@ This will upload a file from the client to the FTP server.
 ```sh
 >> UPLOAD
 Enter file name: abc.txt
-Upload success.
+Upload abc.txt success.
 ...
 ```
 
@@ -45,7 +51,7 @@ This will create a directory on the current working directory.
 ```sh
 >> CREATEDIR
 Enter directory name: rareguy
-Create directory success
+Create rareguy directory success
 ```
 
 ##### ```CHANGEDIR```
@@ -61,7 +67,7 @@ This will delete a file on the FTP server.
 ```sh
 >> DELETE
 Select a file to delete: abc.txt
-Delete success.
+Delete abc.txt success.
 ```
 
 ##### ```UPTRACT```
@@ -70,7 +76,7 @@ This will upload a ```.zip``` file but instead of being a ```.zip``` file on the
 >> UPTRACT
 Select file to upload & extract: test.zip
 Extract success.
-Upload success.
+Upload test.zip success.
 ```
 
 ### ```v0.1.1```
